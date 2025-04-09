@@ -95,10 +95,15 @@ Crea un archivo .env en las carpetas correspondientes (backend, admin), y añade
 Ejemplo para el backend:
 
 PORT=4000
+
 MONGODB_URI=tu_uri_de_mongodb
+
 JWT_SECRET=tu_clave_secreta_jwt
+
 CLOUDINARY_NAME=tu_cloudinary_name
+
 CLOUDINARY_API_KEY=tu_api_key
+
 CLOUDINARY_SECRET_KEY=tu_secret_key
 
 Nota: Asegúrate de no subir tus archivos .env al repositorio, ya que contienen información sensible como claves de acceso. Es recomendable tener el archivo .env ignorado en el repositorio con el archivo .gitignore.
