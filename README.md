@@ -43,7 +43,7 @@ bash
 
 cd ../frontend
 
-npm install react-router-dom react-toastify ...(todas las demás que faltan) 
+npm install 
 
 - **react-router-dom**: PBiblioteca de enrutamiento para navegación entre componentes sin recargar la página
 - **react-toastify**: Biblioteca para interactuar con MongoDB
@@ -59,7 +59,7 @@ bash
 
 cd backend
 
-npm install express mongoose cors dotenv ...(todas las demás que faltan)
+npm install 
 
 - **express**: Framework web para Node.js que facilita la creación de APIs
 - **mongoose**: Biblioteca para interactuar con MongoDB
@@ -80,7 +80,7 @@ bash
 
 cd ../admin
 
-npm install react-router-dom react-toastify axios
+npm install 
 
 - **react-router-dom**: PBiblioteca de enrutamiento para navegación entre componentes sin recargar la página
 - **react-toastify**: Biblioteca para interactuar con MongoDB
