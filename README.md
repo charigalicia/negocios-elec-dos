@@ -18,7 +18,6 @@ Antes de ejecutar el proyecto en tu máquina, asegúrate de tener instalados los
 - [MongoDB](https://www.mongodb.com/try/download/community) (si vas a usar tu propia base de datos localmente)
 - [Git](https://git-scm.com/) (para clonar el repositorio y gestionar el código fuente)
 
-########################################3
 
 ## Instalación
 
@@ -28,19 +27,22 @@ Antes de ejecutar el proyecto en tu máquina, asegúrate de tener instalados los
    git clone https://github.com/tu-usuario/tu-repositorio.git
 
 Accede a la carpeta del proyecto:
+
 bash
+
 cd tu-repositorio
 
 
-
-########################################3
-##Dependencias
+## Dependencias
 Instala las dependencias para las tres partes del proyecto.
 
 
-##Dependencias del Frontend
+**Dependencias del Frontend**
+
 bash
+
 cd ../frontend
+
 npm install react-router-dom react-toastify ...(todas las demás que faltan) 
 
 - **react-router-dom**: PBiblioteca de enrutamiento para navegación entre componentes sin recargar la página
@@ -51,9 +53,12 @@ npm install react-router-dom react-toastify ...(todas las demás que faltan)
 - **autoprefixer**: Plugin de PostCSS que añade automáticamente prefijos para compatibilidad entre navegadores
 
 
-## Dependencias del Backend
+**Dependencias del Backend**
+
 bash
+
 cd backend
+
 npm install express mongoose cors dotenv ...(todas las demás que faltan)
 
 - **express**: Framework web para Node.js que facilita la creación de APIs
@@ -69,9 +74,12 @@ npm install express mongoose cors dotenv ...(todas las demás que faltan)
 - **nodemon**: Herramienta de desarrollo que reinicia automáticamente el servidor
 
 
-##Dependencias de Admin
+**Dependencias de Admin**
+
 bash
+
 cd ../admin
+
 npm install react-router-dom react-toastify axios
 
 - **react-router-dom**: PBiblioteca de enrutamiento para navegación entre componentes sin recargar la página
@@ -79,7 +87,7 @@ npm install react-router-dom react-toastify axios
 - **axios**: Cliente HTTP basado en promesas para realizar peticiones a APIs desde el navegador o Node.js
 
 
-#####################################
+
 ## Configura las variables de entorno:
 
 Crea un archivo .env en las carpetas correspondientes (backend, admin), y añade las variables de entorno necesarias. 
