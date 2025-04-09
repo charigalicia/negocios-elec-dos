@@ -111,7 +111,7 @@ Nota: Asegúrate de no subir tus archivos .env al repositorio, ya que contienen 
 ####################################################
 ## Ejecutar el proyecto
 
-Para ejecutar el Backend:
+**Para ejecutar el Backend:**
 
 En la carpeta backend, usa el siguiente comando:
 
@@ -120,7 +120,7 @@ bash
 npm run server
 
 
-Para ejecutar  Frontend (React):
+**Para ejecutar  Frontend (React):**
 
 
 En la carpeta frontend, usa:
@@ -131,7 +131,7 @@ bash
 npm run dev
 
 
-Admin (React):
+**Para ejecutar Admin (React):**
 
 En la carpeta admin, usa:
 
