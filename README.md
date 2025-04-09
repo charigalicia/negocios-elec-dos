@@ -24,7 +24,7 @@ Antes de ejecutar el proyecto en tu máquina, asegúrate de tener instalados los
 1. **Clona el repositorio** en tu máquina local:
 
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/charigalicia/negocios-elec-dos.git
 
 Accede a la carpeta del proyecto:
 
