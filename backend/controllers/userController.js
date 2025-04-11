@@ -2,6 +2,7 @@ import validator from "validator";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken'
 import userModel from "../models/userModel.js";
+import 'dotenv/config'
 
 
 const createToken=(id)=>{
@@ -11,6 +12,31 @@ const createToken=(id)=>{
 //Route para Ingreso Usuario
 
 const loginUser=async(req, res)=>{
+    try {
+        const {email,password}=req.body;
+        const user =await userModel.findOne({email});
+
+        if (!user) {
+            return res.json({success:false,message:"El usuario no existe"})
+            
+        }
+
+        const isMatch=await bcrypt.compare(password,user.password);
+
+        if (isMatch){
+            const token= createToken(user._id)
+            res.json({success:true,token})
+        }
+        else{
+            res.json({success:false,message:'Credenciales invalidas'})
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.json({succes:false,message:error.message})
+        
+    }
+
 
 }
 
@@ -51,7 +77,7 @@ const registerUser = async(req,res)=>{
 
     } catch (error) {
         console.log(error);
-        rs.json({succes:false,message:error.message})
+        res.json({success:false,message:error.message})
         
     }
 
@@ -60,6 +86,25 @@ const registerUser = async(req,res)=>{
 //Route para Ingreso Administrador
 
 const adminLogin = async(req,res)=>{
+    try {
+
+        const {email,password}=req.body
+
+        if (email===process.env.ADMIN_EMAIL && password===process.env.ADMIN_PASSWORD) {
+            const token = jwt.sign(email+password, process.env.JWT_SECRET);
+            res.json({success:true, token})
+            
+        } else {
+            res.json({success:false, message:"Credenciales invalidas"})
+            
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.json({succes:false,message:error.message})
+        
+        
+    }
 
 }
 
