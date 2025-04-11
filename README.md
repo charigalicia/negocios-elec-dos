@@ -28,9 +28,11 @@ Antes de ejecutar el proyecto en tu máquina, asegúrate de tener instalados los
 
 Accede a la carpeta del proyecto:
 
-bash
+ ```bash
 
 cd tu-repositorio
+
+ ```
 
 
 ## Dependencias
@@ -39,11 +41,13 @@ Instala las dependencias para las tres partes del proyecto.
 
 **Dependencias del Frontend**
 
-bash
+ ```bash
 
 cd ../frontend
 
 npm install 
+
+ ```
 
 - **react-router-dom**: PBiblioteca de enrutamiento para navegación entre componentes sin recargar la página
 - **react-toastify**: Biblioteca para interactuar con MongoDB
@@ -55,11 +59,12 @@ npm install
 
 **Dependencias del Backend**
 
-bash
+ ```bash
 
 cd backend
 
 npm install 
+ ```
 
 - **express**: Framework web para Node.js que facilita la creación de APIs
 - **mongoose**: Biblioteca para interactuar con MongoDB
@@ -76,11 +81,12 @@ npm install
 
 **Dependencias de Admin**
 
-bash
+ ```bash
 
 cd ../admin
 
 npm install 
+ ```
 
 - **react-router-dom**: PBiblioteca de enrutamiento para navegación entre componentes sin recargar la página
 - **react-toastify**: Biblioteca para interactuar con MongoDB
@@ -94,6 +100,8 @@ Crea un archivo .env en las carpetas correspondientes (backend, admin), y añade
 
 Ejemplo para el backend:
 
+ ```bash
+
 PORT=4000
 
 MONGODB_URI=tu_uri_de_mongodb
@@ -106,6 +114,8 @@ CLOUDINARY_API_KEY=tu_api_key
 
 CLOUDINARY_SECRET_KEY=tu_secret_key
 
+ ```
+
 Nota: Asegúrate de no subir tus archivos .env al repositorio, ya que contienen información sensible como claves de acceso. Es recomendable tener el archivo .env ignorado en el repositorio con el archivo .gitignore.
 
 ####################################################
@@ -115,9 +125,11 @@ Nota: Asegúrate de no subir tus archivos .env al repositorio, ya que contienen 
 
 En la carpeta backend, usa el siguiente comando:
 
-bash
+ ```bash
 
 npm run server
+
+ ```
 
 
 **Para ejecutar  Frontend (React):**
@@ -126,19 +138,21 @@ npm run server
 En la carpeta frontend, usa:
 
 
-bash
+ ```bash
 
 npm run dev
-
+ ```
 
 **Para ejecutar Admin (React):**
 
 En la carpeta admin, usa:
 
 
-bash
+ ```bash
 
 npm run dev
+
+ ```
 
 Esto iniciará la aplicación de administración.
 
