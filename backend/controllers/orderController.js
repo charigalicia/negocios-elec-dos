@@ -1,4 +1,6 @@
+import userModel from "../models/userModel.js";
 import orderModel from "../models/orderModel.js";
+
 
 // Poniendo pedido usando metodo COD
 
@@ -21,7 +23,7 @@ const placeOrder = async (req,res)=>{
 
         await userModel.findByIdAndUpdate (userId,{cart:{}})
 
-        response.json({success:true, message:"Pedido realizadod"})
+        res.json({success:true, message:"Pedido realizado"})
         
     } catch (error) {
         console.log(error)
@@ -42,6 +44,16 @@ const allOrders = async (req,res)=>{
 
 // Datos del pedido usuario Frontend
 const userOrders = async (req,res)=>{
+    try {
+        const {userId }=req.body
+        const orders =await orderModel.find({userId})
+        res.json({success:true, orders })
+        
+    } catch (error) {
+        console.log(error)
+        res.json({success:false, message:error.message})
+        
+    }
     
 }
 
