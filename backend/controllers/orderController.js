@@ -39,6 +39,15 @@ const placeOrderStripe = async (req,res)=>{
 
 // Todos los datos de los pedidos en admin panel
 const allOrders = async (req,res)=>{
+    try{
+        const orders=await orderModel.find({})
+        res.json({success:true,orders})
+
+    }catch (error){
+        console.log(error)
+        res.json({success:false, message:error.message})
+
+    }
     
 }
 
@@ -52,13 +61,21 @@ const userOrders = async (req,res)=>{
     } catch (error) {
         console.log(error)
         res.json({success:false, message:error.message})
-        
     }
     
 }
 
 // Actualizar estados de pedidos desde panel admin
 const updateStatus = async (req,res)=>{
+    try{
+
+        const {orderId, status}= req.body
+        await orderModel.findByIdAndUpdate(orderId, {status})
+        res.json({success:true, message:'Estado Actualizado'})
+    }catch (error){
+        console.log(error)
+        res.json({success:false, message:error.message})
+    }
     
 }
 
