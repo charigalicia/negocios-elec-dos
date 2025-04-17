@@ -55,6 +55,7 @@ npm install
 - **tailwindcss**: Framework CSS de utilidades para diseñar interfaces rápidamente mediante clases predefinidas
 - **postcss**: Herramienta que transforma y optimiza CSS usando plugins JavaScript
 - **autoprefixer**: Plugin de PostCSS que añade automáticamente prefijos para compatibilidad entre navegadores
+- **axios**: Cliente HTTP basado en promesas para realizar peticiones a APIs desde el navegador o Node.js
 
 
 **Dependencias del Backend**
@@ -96,7 +97,7 @@ npm install
 
 ## Configura las variables de entorno:
 
-Crea un archivo .env en las carpetas correspondientes (backend, admin), y añade las variables de entorno necesarias. 
+Crea un archivo .env en las carpetas correspondientes (backend, admin, frontend), y añade las variables de entorno necesarias. 
 
 Ejemplo para el backend:
 
@@ -114,9 +115,19 @@ CLOUDINARY_API_KEY=tu_api_key
 
 CLOUDINARY_SECRET_KEY=tu_secret_key
 
+ADMIN_EMAIL ="tu_admin_email"
+
+ADMIN_PASSWORD="tu_admin_contraseña"
+
  ```
 
-Nota: Asegúrate de no subir tus archivos .env al repositorio, ya que contienen información sensible como claves de acceso. Es recomendable tener el archivo .env ignorado en el repositorio con el archivo .gitignore.
+ Ejemplo para el frontend y admin:
+
+ ```bash
+VITE_BACKEND_URL='http://localhost:4000'
+ ```
+
+Nota: Asegúrate de no subir tus archivos .env a tu repositorio, ya que contienen información sensible como claves de acceso. Es recomendable tener el archivo .env ignorado en el repositorio con el archivo .gitignore, como se encuentra en este proyecto.
 
 ####################################################
 ## Ejecutar el proyecto

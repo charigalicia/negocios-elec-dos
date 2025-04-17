@@ -1,5 +1,14 @@
 import userModel from "../models/userModel.js";
 import orderModel from "../models/orderModel.js";
+import Stripe from 'stripe'
+
+
+//Crear Variables globales
+const currency = 'mxn'
+const deliveryCharge = 10
+
+//Iniciar gateaway
+const stripe =new Stripe(process.env.STRIPE_SECRET_KEY)
 
 
 // Poniendo pedido usando metodo COD
@@ -34,6 +43,63 @@ const placeOrder = async (req,res)=>{
 
 // Poniendo pedido usando método Stripe
 const placeOrderStripe = async (req,res)=>{
+    try {
+        const {userId, items, amount, address}=req.body
+        const{origin}=req.headers;
+
+        const orderData ={
+            userId,
+            items,
+            address,
+            amount,
+            paymentMethod:"STRIPE",
+            payment: false,
+            date:Date.now()
+        }
+
+        const newOrder= new orderModel (orderData)
+        await newOrder.save()
+
+        const line_items = items.map((item)=>({
+            price_data:{
+                currency:currency,
+                product_data:{
+                    name:item.name
+
+
+                },
+                unit_amount: item.price * 100
+            },
+
+            quantity:item.quantity
+        }))
+
+        line_items.push({
+            price_data:{
+                currency:currency,
+                product_data:{
+                    name:'Cargos de envío'
+
+
+                },
+                unit_amount: deliveryCharge * 100
+            },
+
+            quantity:1
+        })
+
+        const session= await stripe.checkout.sessions.create({
+            success_url:`${origin}/verify?success=true&orderId=${newOrder._id}`,
+            cancel_url:`${origin}/verify?success=false&orderId=${newOrder._id}`,
+            line_items,
+            mode:'payment', 
+        })
+        
+        res.json ({success:true,session_url:session.url})
+    } catch (error) {
+        console.log(error)
+        res.json({success:false, message:error.message})
+    }
     
 }
 
