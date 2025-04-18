@@ -103,6 +103,27 @@ const placeOrderStripe = async (req,res)=>{
     
 }
 
+//Verificar Stripe
+
+const verifyStripe = async (req,res)=>{
+    const {orderId, success, userId}=req.body
+
+    try {
+        if (success==="true"){
+            await orderModel.findByIdAndUpdate (orderId, {payment:true});
+            await userModel.findByIdAndUpdate(userId,{cartData:{}})
+            res.json({success:true});
+        }else{
+            await orderModel.findByIdAndDelete(orderId)
+            res.json({success:false})
+        }
+    } catch (error) {
+        console.log(error)
+        res.json({success:false,message:error.message})
+        
+    }
+}
+
 // Todos los datos de los pedidos en admin panel
 const allOrders = async (req,res)=>{
     try{
@@ -145,4 +166,4 @@ const updateStatus = async (req,res)=>{
     
 }
 
-export {placeOrder,placeOrderStripe,allOrders, userOrders, updateStatus}
+export {verifyStripe, placeOrder,placeOrderStripe,allOrders, userOrders, updateStatus}
