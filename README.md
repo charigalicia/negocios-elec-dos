@@ -76,7 +76,7 @@ npm install
 - **cloudinary**: Servicio para almacenamiento y gestión de imágenes en la nube
 - **multer**: Middleware para manejar la subida de archivos
 - **validator**: Valida y sanitiza datos de entrada
-- **razorpay/stripe**: Pasarelas de pago para procesar transacciones
+- **stripe**: Pasarela de pago para procesar transacciones
 - **nodemon**: Herramienta de desarrollo que reinicia automáticamente el servidor
 
 
@@ -118,6 +118,8 @@ CLOUDINARY_SECRET_KEY=tu_secret_key
 ADMIN_EMAIL ="tu_admin_email"
 
 ADMIN_PASSWORD="tu_admin_contraseña"
+
+STRIPE_SECRET_KEY="Tu_secret_key_api_stripe"
 
  ```
 
